@@ -12,7 +12,7 @@ import { setupSwagger } from "./swagger";
 dotenv.config({ path: "./.env" });
 
 export const envMode = process.env.NODE_ENV?.trim() || "DEVELOPMENT";
-const port = config.port;
+const port = config.port || 5000;
 
 const mongoURI = config.mongoURI || "mongodb://localhost:27017";
 
