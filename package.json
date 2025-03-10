@@ -2,9 +2,9 @@
  "name": ".",
  "version": "1.0.0",
  "description": "",
- "main": "dist/app.js",
+ "main": "app.js",
  "scripts": {
-  "start": "set NODE_ENV=PRODUCTION & node dist/app.js",
+  "start": "set NODE_ENV=PRODUCTION & node app.js",
   "build": "npm run lint && tsc -p . && tsc-alias",
   "dev": "tsx watch src/app.ts",
   "stage":"tsc && git status && git add .",
