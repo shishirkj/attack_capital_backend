@@ -1,13 +1,13 @@
 import express from "express";
 import helmet from "helmet";
 import cors from "cors";
-import { errorMiddleware } from "@/middlewares/error.js";
 import dotenv from "dotenv";
-import { connectDB } from "@/lib/db.js";
 import authRoutes from "./routes/authRoutes";
 import postRoutes from "./routes/postRoutes";
 import config from "./config/config";
 import { setupSwagger } from "./swagger";
+import { connectDB } from "./lib/db";
+import { errorMiddleware } from "./middlewares/error";
 
 dotenv.config({ path: "./.env" });
 

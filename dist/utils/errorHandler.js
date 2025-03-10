@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class ErrorHandler extends Error {
-    statusCode;
-    message;
     constructor(statusCode, message) {
         super(message);
         this.statusCode = statusCode;

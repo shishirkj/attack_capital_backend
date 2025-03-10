@@ -1,8 +1,8 @@
-import config from "@/config/config";
-import type { IUser } from "@/models/user";
 import bcrypt from "bcryptjs";
 import type { Response } from "express";
 import jwt from "jsonwebtoken";
+import type { IUser } from "../models/user";
+import config from "../config/config";
 
 export const hashPassword = async (password: string) => {
 	return await bcrypt.hash(password, 10);
@@ -30,7 +30,7 @@ export const sendCookie = ({
 		.json({
 			success: true,
 			message: message,
-			token:token,
-			user:user,
+			token: token,
+			user: user,
 		});
 };

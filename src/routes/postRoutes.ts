@@ -1,13 +1,9 @@
 import express from "express";
-import { postSchema } from "@/validations/postValidation";
-import { validate } from "@/middlewares/validate";
-import {
-	createPost,
-	getAllPosts,
-	getPostById,
-	getPostsByAuthor,
-} from "@/controllers/postController";
-import { authenticateJWT } from "@/middlewares/authMiddleware";
+
+import { authenticateJWT } from "../middlewares/authMiddleware";
+import { createPost, getAllPosts, getPostById, getPostsByAuthor } from "../controllers/postController";
+import { postSchema } from "../validations/postValidation";
+import { validate } from "../middlewares/validate";
 
 const router = express.Router();
 

@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendCookie = exports.comparePasswords = exports.hashPassword = void 0;
-const config_1 = __importDefault(require("@/config/config"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const config_1 = __importDefault(require("../config/config"));
 const hashPassword = async (password) => {
     return await bcryptjs_1.default.hash(password, 10);
 };

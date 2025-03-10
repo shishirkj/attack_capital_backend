@@ -1,6 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
-import type ErrorHandler from "@/utils/errorHandler.js";
-import { envMode } from "@/app.js";
+import type ErrorHandler from "../utils/errorHandler";
+import { envMode } from "../app";
+
 
 export const errorMiddleware = (
 	err: ErrorHandler,

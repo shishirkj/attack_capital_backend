@@ -4,10 +4,11 @@ import {
 	comparePasswords,
 	sendCookie,
 } from "../services/authService";
-import ErrorHandler from "@/utils/errorHandler";
-import { TryCatch } from "@/middlewares/error";
-import { isStrongPassword } from "@/utils/core";
-import { User } from "@/models/user";
+import { isStrongPassword } from "../utils/core";
+import { TryCatch } from "../middlewares/error";
+import { User } from "../models/user";
+import ErrorHandler from "../utils/errorHandler";
+
 
 export const signup = TryCatch(
 	async (req: Request, res: Response, next: NextFunction) => {

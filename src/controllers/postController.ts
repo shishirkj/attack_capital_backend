@@ -1,10 +1,11 @@
 import type { Request, Response, NextFunction } from "express";
-import ErrorHandler from "@/utils/errorHandler";
-import { TryCatch } from "@/middlewares/error";
-import type { AuthRequest } from "@/middlewares/authMiddleware";
-import { Post } from "@/models/post";
-import { User } from "@/models/user";
+
 import mongoose from "mongoose";
+import { TryCatch } from "../middlewares/error";
+import type { AuthRequest } from "../middlewares/authMiddleware";
+import ErrorHandler from "../utils/errorHandler";
+import { User } from "../models/user";
+import { Post } from "../models/post";
 
 //create post
 export const createPost = TryCatch(
@@ -135,4 +136,3 @@ export const getPostById = TryCatch(
 		});
 	},
 );
-// Aaaaaa!!!!!!!!121212!

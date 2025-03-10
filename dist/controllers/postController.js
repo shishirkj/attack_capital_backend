@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPostById = exports.getPostsByAuthor = exports.getAllPosts = exports.createPost = void 0;
-const errorHandler_1 = __importDefault(require("@/utils/errorHandler"));
-const error_1 = require("@/middlewares/error");
-const post_1 = require("@/models/post");
-const user_1 = require("@/models/user");
 const mongoose_1 = __importDefault(require("mongoose"));
+const error_1 = require("../middlewares/error");
+const errorHandler_1 = __importDefault(require("../utils/errorHandler"));
+const user_1 = require("../models/user");
+const post_1 = require("../models/post");
 //create post
 exports.createPost = (0, error_1.TryCatch)(async (req, res, next) => {
     const { title, content } = req.body;
@@ -103,4 +103,3 @@ exports.getPostById = (0, error_1.TryCatch)(async (req, res, next) => {
         post,
     });
 });
-// Aaaaaa!!!!!!!!121212!

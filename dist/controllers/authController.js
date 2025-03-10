@@ -5,10 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = exports.signup = void 0;
 const authService_1 = require("../services/authService");
-const errorHandler_1 = __importDefault(require("@/utils/errorHandler"));
-const error_1 = require("@/middlewares/error");
-const core_1 = require("@/utils/core");
-const user_1 = require("@/models/user");
+const core_1 = require("../utils/core");
+const error_1 = require("../middlewares/error");
+const user_1 = require("../models/user");
+const errorHandler_1 = __importDefault(require("../utils/errorHandler"));
 exports.signup = (0, error_1.TryCatch)(async (req, res, next) => {
     const { email, password, name } = req.body;
     if (!(0, core_1.isStrongPassword)(password)) {
