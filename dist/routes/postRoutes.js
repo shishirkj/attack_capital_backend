@@ -1,9 +1,14 @@
-import express from "express";
-import { postSchema } from "../validations/postValidation";
-import { validate } from "../middlewares/validate";
-import { createPost, getAllPosts, getPostById, getPostsByAuthor, } from "../controllers/postController";
-import { authenticateJWT } from "../middlewares/authMiddleware";
-const router = express.Router();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const postValidation_1 = require("@/validations/postValidation");
+const validate_1 = require("@/middlewares/validate");
+const postController_1 = require("@/controllers/postController");
+const authMiddleware_1 = require("@/middlewares/authMiddleware");
+const router = express_1.default.Router();
 /**
  * @swagger
  * /posts:
@@ -30,7 +35,7 @@ const router = express.Router();
  *       401:
  *         description: Unauthorized
  */
-router.get("/", getAllPosts);
+router.get("/", postController_1.getAllPosts);
 /**
  * @swagger
  * /posts/create:
@@ -54,7 +59,7 @@ router.get("/", getAllPosts);
  *       401:
  *         description: Unauthorized
  */
-router.post("/create", authenticateJWT, validate(postSchema), createPost);
+router.post("/create", authMiddleware_1.authenticateJWT, (0, validate_1.validate)(postValidation_1.postSchema), postController_1.createPost);
 /**
  * @swagger
  * /posts/author:
@@ -77,7 +82,7 @@ router.post("/create", authenticateJWT, validate(postSchema), createPost);
  *       401:
  *         description: Unauthorized
  */
-router.get("/author", authenticateJWT, getPostsByAuthor);
+router.get("/author", authMiddleware_1.authenticateJWT, postController_1.getPostsByAuthor);
 /**
  * @swagger
  * /posts/{id}:
@@ -104,5 +109,5 @@ router.get("/author", authenticateJWT, getPostsByAuthor);
  *       400:
  *         description: Invalid post ID
  */
-router.get("/:id", getPostById);
-export default router;
+router.get("/:id", postController_1.getPostById);
+exports.default = router;

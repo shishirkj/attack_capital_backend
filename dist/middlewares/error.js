@@ -1,5 +1,8 @@
-import { envMode } from "../app.js";
-export const errorMiddleware = (err, req, res, 
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TryCatch = exports.errorMiddleware = void 0;
+const app_js_1 = require("@/app.js");
+const errorMiddleware = (err, req, res, 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 next) => {
     err.message ||= "Internal Server Error";
@@ -8,12 +11,13 @@ next) => {
         success: false,
         message: err.message,
     };
-    if (envMode === "DEVELOPMENT") {
+    if (app_js_1.envMode === "DEVELOPMENT") {
         response.error = err;
     }
     return res.status(err.statusCode).json(response);
 };
-export const TryCatch = (passedFunc) => async (req, res, next) => {
+exports.errorMiddleware = errorMiddleware;
+const TryCatch = (passedFunc) => async (req, res, next) => {
     try {
         await passedFunc(req, res, next);
     }
@@ -21,3 +25,4 @@ export const TryCatch = (passedFunc) => async (req, res, next) => {
         next(error);
     }
 };
+exports.TryCatch = TryCatch;

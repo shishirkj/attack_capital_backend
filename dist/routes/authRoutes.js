@@ -1,8 +1,13 @@
-import express from "express";
-import { validate } from "../middlewares/validate";
-import { loginSchema, signupSchema } from "../validations/authValidation";
-import { login, signup } from "../controllers/authController";
-const router = express.Router();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const validate_1 = require("@/middlewares/validate");
+const authValidation_1 = require("@/validations/authValidation");
+const authController_1 = require("@/controllers/authController");
+const router = express_1.default.Router();
 /**
  * @swagger
  * /auth/signup:
@@ -22,7 +27,7 @@ const router = express.Router();
  *       400:
  *         description: Validation error or user already exists
  */
-router.post("/signup", validate(signupSchema), signup);
+router.post("/signup", (0, validate_1.validate)(authValidation_1.signupSchema), authController_1.signup);
 /**
  * @swagger
  * /auth/login:
@@ -42,5 +47,5 @@ router.post("/signup", validate(signupSchema), signup);
  *       401:
  *         description: Invalid credentials
  */
-router.post("/login", validate(loginSchema), login);
-export default router;
+router.post("/login", (0, validate_1.validate)(authValidation_1.loginSchema), authController_1.login);
+exports.default = router;
