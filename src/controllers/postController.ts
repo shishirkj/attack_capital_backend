@@ -6,6 +6,7 @@ import { Post } from "@/models/post";
 import { User } from "@/models/user";
 import mongoose from "mongoose";
 
+//create post
 export const createPost = TryCatch(
 	async (req: AuthRequest, res: Response, next: NextFunction) => {
 		const { title, content } = req.body;
