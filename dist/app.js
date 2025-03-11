@@ -37,4 +37,4 @@ app.get("*", (req, res) => {
     });
 });
 app.use(error_1.errorMiddleware);
-app.listen(port, () => console.log(`Server is working on Port:${port} in ${exports.envMode} Mode.`));
+app.listen(port,"0.0.0.0", () => console.log(`Server is working on Port:${port} in ${exports.envMode} Mode.`));
